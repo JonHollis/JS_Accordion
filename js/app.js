@@ -1,17 +1,19 @@
-let acc = document.getElementsByClassName('accordion');
+function textReveal (){
 
-let i;
+  var acc = document.getElementsByClassName('accordion');
 
-for (i =0;i < acc.length; i++){
-  acc[i].onclick = function() {
-    this.classList.toggle('active');
+  for (let i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
 
-    var panel = this.nextElementSibling;
+      var content = this.nextElementSibling;
 
-    if(panel.style.maxHeight){
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + 'px';
-    }
+      if(content.style.maxHeight){
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + 'px';
+      }
+    });
   }
 }
+
+textReveal ();
